@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32358d85-19e0-48d7-958b-2f8c4af5b808" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2/TravelAPI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +37,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FB5zP1oymMl3FMmFK7KTq6kJx7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,16 +48,25 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/beyondgne/P2-EKBLISIM-backend"
+    "last_opened_file_path": "D:/Programming/Project2/P2-EKBLISIM-backend"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\Project2\P2-EKBLISIM-backend\src\main" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="TravelAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="p2.TravelAPI" />
+    <configuration name="App.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="TPusername" value="revp2" />
+        <env name="TPpassword" value="P@SSWORD123" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="App.Application" />
       <module name="P2-EKBLISIM-backend.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="p2.*" />
+          <option name="PATTERN" value="App.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -60,7 +76,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TravelAPI" />
+        <item itemvalue="Application.App.Application" />
+        <item itemvalue="Application.App.Application" />
       </list>
     </recent_temporary>
   </component>
