@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d27258-84e3-4a61-8fe3-2325f88797cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/AdminAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/AdminAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/ShoppingCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/UserAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/UserAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Service/PackageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

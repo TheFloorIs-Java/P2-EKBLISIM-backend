@@ -24,7 +24,7 @@ public class PackageController {
     }
     @PostMapping
     public Package addPackage(@RequestBody Package p){
-        return ps.addPackage();
+        return ps.addPackage(p);
     }
 
 }

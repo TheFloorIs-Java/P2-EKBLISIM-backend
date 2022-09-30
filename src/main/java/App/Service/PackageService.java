@@ -1,5 +1,6 @@
 package App.Service;
 
+import App.Model.Package;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,10 +12,10 @@ public class PackageService {
     public PackageService(){
 
     }
-    public List<Package> getAllPackages(){
+    public static List<Package> getAllPackages(){
         return null;
     }
-    public Package addPackage(){
+    public Package addPackage(Package p){
         return null;
     }
 
