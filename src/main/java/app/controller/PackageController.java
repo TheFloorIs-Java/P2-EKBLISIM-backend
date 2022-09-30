@@ -1,8 +1,8 @@
 package App.Controller;
 
+import App.Model.Packages;
 import App.Service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ public class PackageController {
         this.ps = ps;
     }
     @GetMapping("packages")
-    public List<Package> getAllPackages(){
+    public List<Packages> getAllPackages(){
         return ps.getAllPackages();
     }
 }

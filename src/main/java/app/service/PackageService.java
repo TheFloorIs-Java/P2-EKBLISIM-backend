@@ -1,5 +1,6 @@
 package App.Service;
 
+import App.Model.Packages;
 import App.Repository.PackageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class PackageService {
     public PackageService(PackageRepository pr){
         this.pr = pr;
     }
-    public List<Package> getAllPackages(){
+    public List<Packages> getAllPackages(){
         return pr.findAll();
     }
 }

@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d27258-84e3-4a61-8fe3-2325f88797cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Model/Packages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/AdminAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/AdminAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/UserAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/PackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Package.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/repository/PackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/repository/PackageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/service/PackageService.java" afterDir="false" />
     </list>
@@ -125,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664480090569</updated>
       <workItem from="1664480097211" duration="5146000" />
-      <workItem from="1664541875478" duration="9122000" />
+      <workItem from="1664541875478" duration="11604000" />
     </task>
     <servers />
   </component>
