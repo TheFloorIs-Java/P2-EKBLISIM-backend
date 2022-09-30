@@ -11,23 +11,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Package")
 public class Package {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int packageID;
     @Column
     String packageType;
     @Column
     String usState;
     @Column
-    String month;
+    String monthOffering;
     @Column
     String details;
     @Column
     double price;
-    @OneToMany(mappedBy = "Package", fetch = FetchType.LAZY,
-    cascade = CascadeType.ALL)
-    private List<ShoppingCart> carts;
+//    @OneToMany(mappedBy = "Package", fetch = FetchType.LAZY,
+//    cascade = CascadeType.ALL)
+//    private List<ShoppingCart> carts;
     // One/Same package is in many shopping carts
 }
+// GET request by the User, PUT request for the Admin to update a value

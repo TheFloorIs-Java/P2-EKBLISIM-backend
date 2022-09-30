@@ -20,3 +20,4 @@ public class AdminAccount {
     @Column
     String password;
 }
+// GET, POST here, for authentication

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "UserAccount")
+
 public class UserAccount {
     @Id
     @Column
@@ -22,8 +22,9 @@ public class UserAccount {
     String username;
     @Column
     String password;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId", referencedColumnName = "paymentId")
-    private Payment payment;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "userId", referencedColumnName = "paymentId")
+//    private Payment payment;
     // One user uses one payment to make a transaction
 }
+// GET, POST requests here, for authentication
