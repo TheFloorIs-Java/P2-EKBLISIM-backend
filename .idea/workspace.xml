@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d27258-84e3-4a61-8fe3-2325f88797cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controller/AdminAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controller/ShoppingCartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controller/UserAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Repository/AdminAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Repository/ShoppingCartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Repository/UserAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/AdminAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/ShoppingCartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/UserAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/TravelPackageApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/AdminAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Model/AdminAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Model/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Model/UserAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/repository/PackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Repository/PackageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Service/PackageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/AdminAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/AdminAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PackageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/ShoppingCartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/UserAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/UserAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Service/PackageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,18 +62,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Emily/Desktop/Proj2/P2-EKBLISIM-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "92a2c2b1a78f159ff0b06c4915a5a8e0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emily/Desktop/Proj2/P2-EKBLISIM-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;92a2c2b1a78f159ff0b06c4915a5a8e0&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="App.TravelPackageApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="TPpassword" value="P@SSWORD123" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="App.TravelPackageApp" />
+      <module name="P2-EKBLISIM-backend.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App.TravelPackageApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
