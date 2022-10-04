@@ -1,5 +1,6 @@
 package App.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,9 +26,10 @@ public class Packages {
     String details;
     @Column
     double price;
-//    @OneToMany(mappedBy = "Package", fetch = FetchType.LAZY,
-//    cascade = CascadeType.ALL)
-//    private List<ShoppingCart> carts;
-    // One/Same package is in many shopping carts
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name="userId")
+    UserAccount userAccount;
+    //Many packages are chosen by one user
 }
 // GET request by the User, PUT request for the Admin to update a value

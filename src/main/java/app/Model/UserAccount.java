@@ -1,10 +1,12 @@
 package App.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,16 +17,14 @@ public class UserAccount {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int defaultId; // Must have a Primary Key
-    @Column
     int userId; // Foreign Key referencing paymentId in Payment
     @Column
     String username;
     @Column
     String password;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "userId", referencedColumnName = "paymentId")
-//    private Payment payment;
-    // One user uses one payment to make a transaction
+    @OneToMany(mappedBy = "userAccount")
+    @JsonManagedReference
+    List<Packages> packages;
+//     One user uses can add many packages
 }
 // GET, POST requests here, for authentication

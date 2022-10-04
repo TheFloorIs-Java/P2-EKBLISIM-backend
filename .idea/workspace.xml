@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d27258-84e3-4a61-8fe3-2325f88797cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/Model/Packages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/repository/PaymentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/PackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Package.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/repository/PackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/repository/PackageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/service/PackageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/Packages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/Packages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/ShoppingCart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Model/UserAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +45,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,7 +57,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2FSKWoJAozMLpuQeqcAYvDymc0C" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -59,22 +67,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "92a2c2b1a78f159ff0b06c4915a5a8e0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;92a2c2b1a78f159ff0b06c4915a5a8e0&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="BUNDLED" />
@@ -122,7 +130,10 @@
       <option name="presentableId" value="Default" />
       <updated>1664480090569</updated>
       <workItem from="1664480097211" duration="5146000" />
-      <workItem from="1664541875478" duration="11604000" />
+      <workItem from="1664541875478" duration="11961000" />
+      <workItem from="1664648116996" duration="2051000" />
+      <workItem from="1664842096902" duration="1776000" />
+      <workItem from="1664895448951" duration="3672000" />
     </task>
     <servers />
   </component>
