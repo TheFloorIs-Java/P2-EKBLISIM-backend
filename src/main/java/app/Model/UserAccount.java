@@ -19,12 +19,15 @@ public class UserAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int userId; // Foreign Key referencing paymentId in Payment
     @Column
-    String username;
+    String username; // we can join this with paymentId
     @Column
     String password;
     @OneToMany(mappedBy = "userAccount")
     @JsonManagedReference
     List<Packages> packages;
-//     One user uses can add many packages
+    @OneToMany(mappedBy = "userpays")
+    @JsonManagedReference
+    List<Payment> payments;
+//     One user can add many packages
 }
-// GET, POST requests here, for authentication
+
