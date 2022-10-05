@@ -1,4 +1,4 @@
-package App.Model;
+package app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +13,7 @@ import javax.persistence.*;
 public class AdminAccount {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int adminId;
+    String adminname;
     @Column
-    String username;
-    @Column
-    String password;
+    String passwordHash;
 }

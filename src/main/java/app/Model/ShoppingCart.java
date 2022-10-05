@@ -1,21 +1,20 @@
-package App.Model;
-
+package app.model;
+/*
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "ShoppingCart")
 @Table(name = "ShoppingCart")
 public class ShoppingCart {
     @Id
     @Column
-    int cartId;
+    int ID;
     @Column
     int orderNumber; // Foreign Key references packageId in Package
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -26,3 +25,4 @@ public class ShoppingCart {
     private Payment payment;
     // one shopping cart uses one payment in a single transaction
 }
+*/

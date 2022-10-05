@@ -1,4 +1,4 @@
-package App.Model;
+package app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,24 +10,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Payment")
 public class Payment {
     @Id
     @Column
-    int paymentId;
-    @Column
-    int Id; // Foreign key references cartId in ShoppingCart
+    String username;
     @Column
     int cardNumber;
     @Column
-    int securityCode;
+    int CVV;
     @Column
-    int expiryDate;
-    @OneToOne(mappedBy = "UserAccount")
-    private UserAccount users;
-    // a payment is made by one user
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id", referencedColumnName = "cartId")
-    private ShoppingCart sc;
-    // there is one payment used in a shopping cart
+    int expirationDate;
 }
