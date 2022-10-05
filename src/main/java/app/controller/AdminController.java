@@ -1,4 +1,4 @@
-package App.Controller;
+package App.controller;
 
 public class AdminController {
 }

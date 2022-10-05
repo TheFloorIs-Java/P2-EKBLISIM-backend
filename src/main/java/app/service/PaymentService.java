@@ -1,7 +1,7 @@
-package App.Service;
+package App.service;
 
 import App.Model.Payment;
-import App.Repository.PaymentRepository;
+import App.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

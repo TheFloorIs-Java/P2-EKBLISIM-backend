@@ -1,4 +1,4 @@
-package App.Repository;
+package App.repository;
 
 public interface AdminRepository {
 }

@@ -1,6 +1,6 @@
-package App.Service;
+package App.service;
 
-import App.Repository.UserRepository;
+import App.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

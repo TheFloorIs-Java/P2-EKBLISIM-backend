@@ -1,4 +1,4 @@
-package App.Service;
+package App.service;
 
 public class AdminService {
 }

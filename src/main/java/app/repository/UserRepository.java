@@ -1,6 +1,5 @@
-package App.Repository;
+package App.repository;
 
-import App.Model.Payment;
 import App.Model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

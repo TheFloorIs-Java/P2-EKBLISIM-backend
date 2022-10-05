@@ -1,7 +1,7 @@
-package App.Controller;
+package App.controller;
 
 import App.Model.Packages;
-import App.Service.PackageService;
+import App.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

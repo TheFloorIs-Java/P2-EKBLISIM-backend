@@ -1,7 +1,7 @@
-package App.Controller;
+package App.controller;
 
 import App.Model.Payment;
-import App.Service.PaymentService;
+import App.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

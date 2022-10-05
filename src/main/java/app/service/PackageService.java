@@ -1,7 +1,7 @@
-package App.Service;
+package App.service;
 
 import App.Model.Packages;
-import App.Repository.PackageRepository;
+import App.repository.PackageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
