@@ -21,13 +21,23 @@ public class UserAccount {
     @Column
     String username; // we can join this with paymentId
     @Column
-    String password;
+    String passwordHash;
     @OneToMany(mappedBy = "userAccount")
     @JsonManagedReference
     List<Packages> packages;
-    @OneToMany(mappedBy = "userpays")
-    @JsonManagedReference
-    List<Payment> payments;
-//     One user can add many packages
+    // One user can add many packages
+//    @OneToMany(mappedBy = "userpays")
+//    @JsonManagedReference
+//    List<Payment> payments;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paymmentId")
+    private Payment payments;
+    // One user makes one payment per order
+
+    public UserAccount(String username, String sha384toString) {
+    }
+
+
+
 }
 

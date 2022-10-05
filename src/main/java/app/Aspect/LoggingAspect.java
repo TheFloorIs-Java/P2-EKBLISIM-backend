@@ -35,23 +35,5 @@ public class LoggingAspect {
         // log the difference
         logs.info("Method {} took {} ms to complete", pj.getSignature().getName(), (endTime-startTime));
     }
-//    @Before("execution (* App.controller.*.*(..))")
-//    public void logBeforeController(JoinPoint joinPoint){
-//        logs.info("Intercepted method call of {}", joinPoint.getSignature().getName());
-//    }
-//    @After("execution (* App.controller.*.*(..))")
-//    public void logAfterController(JoinPoint joinPoint){
-//        logs.info("Logging after the method call of {}", joinPoint.getSignature().getName());
-//    }
-//    @Around("execution (* App.controller.*.*(..))") // lets you track when a method starts and ends
-//    public void logMethodExecutionTimeController(ProceedingJoinPoint pj) throws Throwable {
-//        // start time
-//        long startTime = System.currentTimeMillis();
-//        // for the method to continue execution
-//        pj.proceed();
-//        // end time
-//        long endTime = System.currentTimeMillis();
-//        // log the difference
-//        logs.info("Method {} took {} ms to complete", pj.getSignature().getName(), (endTime-startTime));
-//    }
+
 }

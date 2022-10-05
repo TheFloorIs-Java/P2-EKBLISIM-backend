@@ -1,9 +1,8 @@
 package App.controller;
 
+import App.Model.UserAccount;
 import App.service.UserService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -12,7 +11,18 @@ public class UserController {
     public UserController(UserService us){
         this.us = us;
     }
-    @GetMapping("shopping_cart")
+    @PostMapping("users")
+    public String signUp(@RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
+        //this.logger.info("Signing up");
+        return this.us.addUser(account.getUsername(), account.getPasswordHash());
+    }
+
+    @PostMapping("users/{username}")
+    public String signIn(@RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
+        //this.logger.info("Signing in");
+        return this.us.validateUser(account.getUsername(), account.getPasswordHash());
+    }
+    @GetMapping("cart")
     public int getTotalPrice() {
         return us.getTotalPrice();
     }

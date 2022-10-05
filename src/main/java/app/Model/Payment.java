@@ -23,10 +23,12 @@ public class Payment {
     int securityCode;
     @Column
     int expiryDate; // issue: how to do a date format, I tried assigning it to String, gave me an error
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name="username")
-    UserAccount userpays;
-
+//    @ManyToOne
+//    @JsonBackReference
+//    @JoinColumn(name="username")
+//    UserAccount userpays;
+    @OneToOne(mappedBy = "payments")
+    private UserAccount userpays;
+// One payment is used in one order by a single user
 }
 // POST request made here by the User
