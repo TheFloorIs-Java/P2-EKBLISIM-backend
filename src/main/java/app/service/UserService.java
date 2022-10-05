@@ -1,5 +1,7 @@
 package app.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +20,10 @@ public class UserService {
 
     @Transactional
     public String addUser(String username, String password) {
-        UserAccount account = this.ur.getAccount(username);
+        Optional<UserAccount> optional = this.ur.findById(username);
 
-        if (account != null) {
-            //this.logger.error("Attempted to create an already existing account");
+        if (!optional.isEmpty()) {
+            //this.logger.error("Attempted to create an already-existing account");
             return "An account with that username already exists";
 
         }  else if (username.contains(" ")) {
@@ -34,20 +36,20 @@ public class UserService {
 
         } else {
             //this.logger.info(name + " created");
-            account = new UserAccount(username, Hash.SHA384toString(password));
+            UserAccount account = new UserAccount(username, Hash.SHA384toString(password), null);
             this.ur.save(account);
             return "Account created!";
         }
     }
 
     public String validateUser(String username, String password) {
-        UserAccount account = this.ur.getAccount(username);
+        Optional<UserAccount> optional = this.ur.findById(username);
 
-        if (account == null) {
+        if (optional.isEmpty()) {
             //this.logger.error("Account does not exist");
             return "No account with that username exists";
 
-        } else if (!Hash.maps(password, account.getPasswordHash())) {
+        } else if (!Hash.SHA384toString(password).equals(optional.get().getPasswordHash())) {
             //this.logger.error("Invalid password");
             return "Invalid password";
 
@@ -55,5 +57,17 @@ public class UserService {
             //this.logger.info(username + " signed in");
             return "Signed in!";
         }
+    }
+
+    @Transactional
+    public void setAccount(UserAccount account) {
+        //this.logger.info("Account updated");
+        this.ur.save(account);
+    }
+
+    @Transactional
+    public void deleteAccount(String username) {
+        //this.logger.info("Account deleted");
+        this.ur.deleteById(username);
     }
 }

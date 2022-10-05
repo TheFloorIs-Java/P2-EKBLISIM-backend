@@ -13,11 +13,17 @@ import javax.persistence.*;
 public class Payment {
     @Id
     @Column
-    String username;
+    private String username; // A primary key that's also a foreign key
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private UserAccount userAccount;
+    
     @Column
-    int cardNumber;
+    private String cardNumber;
     @Column
-    int CVV;
+    private String CVV;
     @Column
-    int expirationDate;
+    private String expirationMonth;
+    @Column
+    private String expirationYear;
 }

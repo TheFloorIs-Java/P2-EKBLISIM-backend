@@ -18,8 +18,4 @@ class Hash {
             throw new RuntimeException(e);
         }
     }
-
-    static Boolean maps(String input, String hash) {
-        return Hash.SHA384toString(input).equals(hash);
-    }
 }

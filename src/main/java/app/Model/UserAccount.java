@@ -13,7 +13,9 @@ import javax.persistence.*;
 public class UserAccount {
     @Id
     @Column
-    String username;
-    @Column
-    String passwordHash;
+    private String username;
+    @Column(length = 384)
+    private String passwordHash;
+
+    private String password; // For receiving password from HTTP request that hasn't been hashed yet. This is not saved in the database
 }

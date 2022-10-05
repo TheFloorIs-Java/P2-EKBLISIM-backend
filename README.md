@@ -1,3 +1,3 @@
-# Project 2 EKBLISIM - Backend
+# Project 2 TravelAgency - Backend
 
 Contains the Spring backend.

@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Package {
     @Id
     @Column
-    int ID;
+    Integer ID;
     @Column
     String type;
     @Column
@@ -23,5 +23,5 @@ public class Package {
     @Column
     String details;
     @Column
-    double price;
+    Double price;
 }

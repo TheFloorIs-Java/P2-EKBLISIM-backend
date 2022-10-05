@@ -16,4 +16,7 @@ public class AdminAccount {
     String adminname;
     @Column
     String passwordHash;
+
+    private String password; // For receiving password from HTTP request that hasn't been hashed yet. This is not saved in the database
+    private String signUpCode; // Optional feature: admins need a code to sign up
 }
