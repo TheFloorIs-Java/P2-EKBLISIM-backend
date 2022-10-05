@@ -37,7 +37,7 @@ public class UserController {
 
     @PostMapping("users/{username}/payment")
     public void updatePayment(@PathVariable("username") Payment payment) {
-        //this.logger.info("Retrieving payment information");
+        //this.logger.info("Updating payment information");
         this.ps.updatePayment(payment);
     }
 

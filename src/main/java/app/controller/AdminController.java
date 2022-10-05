@@ -23,7 +23,7 @@ public class AdminController {
         return this.as.addAdmin(account.getAdminname(), account.getPasswordHash());
     }
     
-    @PostMapping("admins/{name}")
+    @PostMapping("admins/{adminname}")
     public String signIn(@RequestBody AdminAccount account) { // Returns the error or success message defined in AdminService.java
         //this.logger.info("Signing in");
         return this.as.validateAdmin(account.getAdminname(), account.getPasswordHash());
