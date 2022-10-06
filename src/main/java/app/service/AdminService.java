@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import app.aspect.Logging;
 import app.model.AdminAccount;
 import app.repository.AdminRepository;
-import app.repository.UserRepository;
+import app.util.Hash;
 
 @Service
 public class AdminService {
     private AdminRepository ar;
-    private UserRepository ur;
 
     @Autowired
-    public AdminService(AdminRepository ar, UserRepository ur) {
+    public AdminService(AdminRepository ar) {
         this.ar = ar;
     }
 
@@ -25,46 +25,47 @@ public class AdminService {
         Optional<AdminAccount> optional = this.ar.findById(adminname);
 
         if (!optional.isEmpty()) {
-            //this.logger.error("Attempted to create an already-existing account");
+            Logging.LOG.error("Attempted to create an already-existing account");
             return "An account with that adminname already exists";
 
         }  else if (adminname.contains(" ")) {
-            //this.logger.error("Included spaces");
+            Logging.LOG.error("Included spaces");
             return "Adminname must not include spaces";
 
         } else if (adminname.equals("")) {
-            //this.logger.error("Empty string");
+            Logging.LOG.error("Empty string");
             return "Adminname must not be empty";
 
         } else {
-            //this.logger.info(name + " created");
             AdminAccount account = new AdminAccount(adminname, Hash.SHA384toString(password), null, null);
             this.ar.save(account);
+            Logging.LOG.info(adminname + " created");
             return "Account created!";
         }
     }
 
+    // Optional feature: admins need a special code to sign up
     // Not implemented
     @Transactional
-    public String addAdminCode(String adminname, String password, String code) { // Optional feature: admins need a special code to sign up
+    public String addAdminCode(String adminname, String password, String code) {
         Optional<AdminAccount> optional = this.ar.findById(adminname);
 
         if (!optional.isEmpty()) {
-            //this.logger.error("Attempted to create an already-existing account");
+            Logging.LOG.error("Attempted to create an already-existing account");
             return "An account with that adminname already exists";
 
-        }  else if (adminname.contains(" ")) {
-            //this.logger.error("Included spaces");
+        } else if (adminname.contains(" ")) {
+            Logging.LOG.error("Included spaces");
             return "Adminname must not include spaces";
 
         } else if (adminname.equals("")) {
-            //this.logger.error("Empty string");
+            Logging.LOG.error("Empty string");
             return "Adminname must not be empty";
 
         } else {
-            //this.logger.info(name + " created");
             AdminAccount account = new AdminAccount(adminname, Hash.SHA384toString(password), null, null);
             this.ar.save(account);
+            Logging.LOG.info(adminname + " created");
             return "Account created!";
         }
     }
@@ -73,28 +74,22 @@ public class AdminService {
         Optional<AdminAccount> optional = this.ar.findById(adminname);
 
         if (optional.isEmpty()) {
-            //this.logger.error("Account does not exist");
+            Logging.LOG.error("Account does not exist");
             return "No account with that adminname exists";
 
         } else if (!Hash.SHA384toString(password).equals(optional.get().getPasswordHash())) {
-            //this.logger.error("Invalid password");
+            Logging.LOG.error("Invalid password");
             return "Invalid password";
 
         } else {
-            //this.logger.info(Adminname + " signed in");
+            Logging.LOG.info(adminname + " signed in");
             return "Signed in!";
         }
     }
 
     @Transactional
     public void deleteAccount(String adminname) {
-        //this.logger.info("Account deleted");
+        Logging.LOG.info(adminname + " deleted");
         this.ar.deleteById(adminname);
-    }
-
-    @Transactional
-    public void deleteUser(String username) {
-        //this.logger.info("Account deleted");
-        this.ur.deleteById(username);
     }
 }

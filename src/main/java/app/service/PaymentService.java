@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import app.aspect.Logging;
 import app.model.Payment;
 import app.repository.PaymentRepository;
+import app.util.Luhn;
 
 @Service
 public class PaymentService {
@@ -24,7 +26,7 @@ public class PaymentService {
     }
 
     public Payment getPayment(String username) {
-        //this.logger.info("Payment information retrieved");
+        Logging.LOG.info("Payment information retrieved");
         return this.pr.findById(username).get();
     }
 
@@ -38,25 +40,25 @@ public class PaymentService {
         Boolean validCardNumber = Luhn.validate(cardNumber);
 
         if (cardNumber.length() != 16) {
-            //this.logger.error("Invalid card number");
+            Logging.LOG.error("Invalid card number");
             return "Invalid card number";
             
         } else if (payment.getCVV().length() != 3) {
-            //this.logger.error("Invalid security code");
+            Logging.LOG.error("Invalid security code");
             return "Invalid security code";
 
         } else if (!validExpiration) {
-            //this.logger.error("Invalid expiration date");
+            Logging.LOG.error("Invalid expiration date");
             return "Invalid expiration date";
 
         } else if (!validCardNumber) {
-            //this.logger.error("Invalid card number");
+            Logging.LOG.error("Invalid card number");
             return "Invalid card number";
             
         } else {
             this.pr.save(payment);
 
-            //this.logger.error("Payment information updated");
+            Logging.LOG.info("Payment information updated");
             return "Payment information updated!";
         }
     }

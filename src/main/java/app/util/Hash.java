@@ -1,11 +1,11 @@
-package app.service;
+package app.util;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-class Hash {
-    static String SHA384toString(String input) {
+public class Hash {
+    public static String SHA384toString(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-384");
             byte[] messageDigest = md.digest(input.getBytes());

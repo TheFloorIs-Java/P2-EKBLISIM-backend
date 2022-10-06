@@ -1,4 +1,4 @@
-package app.service;
+package app.util;
 
 public class Luhn {
     public static Boolean validate(String number) {

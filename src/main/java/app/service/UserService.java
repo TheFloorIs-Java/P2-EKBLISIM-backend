@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import app.aspect.Logging;
 import app.model.UserAccount;
 import app.repository.UserRepository;
+import app.util.Hash;
 
 @Service
 public class UserService {
@@ -23,21 +25,21 @@ public class UserService {
         Optional<UserAccount> optional = this.ur.findById(username);
 
         if (!optional.isEmpty()) {
-            //this.logger.error("Attempted to create an already-existing account");
+            Logging.LOG.error("Attempted to create an already-existing account");
             return "An account with that username already exists";
 
         }  else if (username.contains(" ")) {
-            //this.logger.error("Included spaces");
+            Logging.LOG.error("Included spaces");
             return "Username must not include spaces";
 
         } else if (username.equals("")) {
-            //this.logger.error("Empty string");
+            Logging.LOG.error("Empty string");
             return "Username must not be empty";
 
         } else {
-            //this.logger.info(name + " created");
             UserAccount account = new UserAccount(username, Hash.SHA384toString(password), null);
             this.ur.save(account);
+            Logging.LOG.info(username + " created");
             return "Account created!";
         }
     }
@@ -46,28 +48,32 @@ public class UserService {
         Optional<UserAccount> optional = this.ur.findById(username);
 
         if (optional.isEmpty()) {
-            //this.logger.error("Account does not exist");
+            Logging.LOG.error("Account does not exist");
             return "No account with that username exists";
 
         } else if (!Hash.SHA384toString(password).equals(optional.get().getPasswordHash())) {
-            //this.logger.error("Invalid password");
+            Logging.LOG.error("Invalid password");
             return "Invalid password";
 
         } else {
-            //this.logger.info(username + " signed in");
+            Logging.LOG.info(username + " signed in");
             return "Signed in!";
         }
     }
 
+    public UserAccount getAccount(String username) {
+        return this.ur.findById(username).get();
+    }
+
     @Transactional
     public void setAccount(UserAccount account) {
-        //this.logger.info("Account updated");
+        Logging.LOG.info("Account updated");
         this.ur.save(account);
     }
 
     @Transactional
     public void deleteAccount(String username) {
-        //this.logger.info("Account deleted");
+        Logging.LOG.info(username + " deleted");
         this.ur.deleteById(username);
     }
 }

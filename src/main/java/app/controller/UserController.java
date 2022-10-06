@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.aspect.Logging;
 import app.model.Payment;
 import app.model.UserAccount;
 import app.service.PaymentService;
@@ -29,11 +30,13 @@ public class UserController {
 
     @PostMapping("users")
     public String signUp(@RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
-        //this.logger.info("Signing up");
-        String message = this.us.addUser(account.getUsername(), account.getPassword());
-        Boolean success = message.equals("Account created!");
+        Logging.LOG.info("Signing up");
+        String username = account.getUsername();
+        String message = this.us.addUser(username, account.getPassword());
+        Boolean success = message.equals(username + " created!");
 
         if (success) {
+            // Not logged because this is simply a placeholder in the Payment table for the user
             this.ps.addPayment(new Payment(account.getUsername(), null, null, null, null, null));
         }
 
@@ -42,33 +45,24 @@ public class UserController {
     
     @PostMapping("users/{username}")
     public String signIn(@RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
-        //this.logger.info("Signing in");
+        Logging.LOG.info("Signing in");
         return this.us.validateUser(account.getUsername(), account.getPassword());
+    }
+
+    @GetMapping("users/{username}")
+    public UserAccount getAccount(@PathVariable("username") String username) {
+        return this.us.getAccount(username);
     }
 
     @PutMapping("users/{username}")
     public void setAccount(@RequestBody UserAccount account) { // For changing the password
-        //this.logger.info("Updating account information");
+        Logging.LOG.info("Updating account information");
         this.us.setAccount(account);
     }
 
     @DeleteMapping("users/{username}")
     public void deleteAccount(@PathVariable("username") String username) {
-        //this.logger.info("Deleting " + username);
+        Logging.LOG.info("Deleting " + username);
         this.us.deleteAccount(username);
     }
-
-    @PutMapping("users/{username}/payment")
-    public void updatePayment(@RequestBody Payment payment) { // For changing any payment details
-        //this.logger.info("Updating payment information");
-        this.ps.updatePayment(payment);
-    }
-
-    @GetMapping("users/{username}/payment")
-    public Payment getPayment(@PathVariable("username") String username) {
-        //this.logger.info("Retrieving payment information");
-        return this.ps.getPayment(username);
-    }
-
-    // Shopping cart methods later, possibly
 }
