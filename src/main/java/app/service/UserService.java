@@ -3,10 +3,13 @@ package App.service;
 import App.Model.UserAccount;
 import App.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import java.util.Optional;
 
-@Component
+
+@Service
 public class UserService {
     UserRepository ur;
     @Autowired
@@ -15,9 +18,9 @@ public class UserService {
     }
     @Transactional
     public String addUser(String username, String password) {
-        UserAccount account = this.ur.getAccount(username);
+        Optional<UserAccount> optional = this.ur.findById(username);
 
-        if (account != null) {
+        if (optional != null) {
             return "An account with that username already exists";
 
         }  else if (username.contains(" ")) {
@@ -27,26 +30,26 @@ public class UserService {
             return "Username must not be empty";
 
         } else {
-            account = new UserAccount(username, Hash.SHA384toString(password));
+            UserAccount account = new UserAccount(username, Hash.SHA384toString(password), null);
             this.ur.save(account);
             return "Account created!";
         }
     }
-
+    public List<UserAccount> getUsers(){
+        return ur.findAll();
+    }
     public String validateUser(String username, String password) {
-        UserAccount account = this.ur.getAccount(username);
+        Optional<UserAccount> optional = this.ur.findById(username);
 
-        if (account == null) {
+        if (optional == null) {
             return "No account with that username exists";
 
-        } else if (!Hash.maps(password, account.getPasswordHash())) {
+        } else if (!Hash.SHA384toString(password).equals(optional.get().getPasswordHash())) {
             return "Invalid password";
 
         } else {
             return "Signed in!";
         }
     }
-    public int getTotalPrice(){
-        return ur.getTotalPrice();
-    }
+
 }
