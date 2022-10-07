@@ -1,6 +1,5 @@
-package App.Model;
+package app.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,19 +10,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Payment {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int paymentId;
+    private String username; // A primary key that's also a foreign key
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private UserAccount userAccount;
+    
     @Column
-    long cardNumber; // issue: accepts values less and greater than 16 digits
+    private String cardNumber;
     @Column
-    int securityCode;
+    private String CVV;
     @Column
-    int expiryDate; // issue: how to do a date format, I tried assigning it to String, gave me an error
-
-
+    private String expirationMonth;
+    @Column
+    private String expirationYear;
 }
-// POST request made here by the User

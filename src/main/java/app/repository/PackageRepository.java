@@ -1,8 +1,11 @@
-package App.Repository;
+package app.repository;
 
-import App.Model.Packages;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PackageRepository extends JpaRepository<Packages, Integer> {
+import app.model.Package;
 
+@Repository
+public interface PackageRepository extends JpaRepository<Package, Integer> {
+    
 }

@@ -1,13 +1,11 @@
-package App.Repository;
+package app.repository;
 
-import App.Model.Payment;
-import App.Model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<UserAccount, Integer> {
-//    @Query("Select sum(packagePrice) from Packages p inner join UserAccount u on p.packageID = " +
-//            "u.userId", nativeQuery = true);
-    public int getTotalPrice();
+import app.model.UserAccount;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserAccount, String> {
 
 }

@@ -1,21 +1,36 @@
-package App.Service;
+package app.service;
 
-import App.Model.Packages;
-import App.Repository.PackageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import app.repository.PackageRepository;
+import app.aspect.Logging;
+import app.model.Package;
 
-@Component
-
+@Service
 public class PackageService {
-    PackageRepository pr;
+    private PackageRepository pr;
+
     @Autowired
-    public PackageService(PackageRepository pr){
+    public PackageService(PackageRepository pr) {
         this.pr = pr;
     }
-    public List<Packages> getAllPackages(){
-        return pr.findAll();
+
+    public Package getPackageByID(Integer ID) {
+        Logging.LOG.info("Retrieving package " + ID);
+        return this.pr.findById(ID).get();
+    }
+
+    @Transactional
+    public void addPackage(Package p) {
+        Logging.LOG.info("Adding package");
+        this.pr.save(p);
+    }
+
+    @Transactional
+    public void updatePackage(Package p) {
+        Logging.LOG.info("Updating package " + p.getID());
+        this.pr.save(p);
     }
 }
