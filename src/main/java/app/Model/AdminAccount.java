@@ -1,4 +1,4 @@
-package App.Model;
+package app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +13,10 @@ import javax.persistence.*;
 public class AdminAccount {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int adminId;
+    private String adminname;
     @Column
-    String username;
-    @Column
-    String password;
+    private String passwordHash;
+
+    private String password; // For receiving password from HTTP request that hasn't been hashed yet. This is not saved in the database
+    private String signUpCode; // Optional feature: admins need a code to sign up
 }
-// GET, POST here, for authentication
