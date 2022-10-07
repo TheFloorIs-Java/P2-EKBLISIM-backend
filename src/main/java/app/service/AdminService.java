@@ -10,6 +10,7 @@ import app.aspect.Logging;
 import app.model.AdminAccount;
 import app.repository.AdminRepository;
 import app.util.Hash;
+import app.util.Salt;
 
 @Service
 public class AdminService {
@@ -37,7 +38,9 @@ public class AdminService {
             return "Adminname must not be empty";
 
         } else {
-            AdminAccount account = new AdminAccount(adminname, Hash.SHA384toString(password), null, null);
+            String passwordSalt = Salt.generate();
+            String passwordHash = Hash.SHA384toString(password + passwordSalt);
+            AdminAccount account = new AdminAccount(adminname, passwordHash, passwordSalt, null, null);
             this.ar.save(account);
             Logging.LOG.info(adminname + " created");
             return "Account created!";
@@ -54,7 +57,7 @@ public class AdminService {
             Logging.LOG.error("Attempted to create an already-existing account");
             return "An account with that adminname already exists";
 
-        } else if (adminname.contains(" ")) {
+        }  else if (adminname.contains(" ")) {
             Logging.LOG.error("Included spaces");
             return "Adminname must not include spaces";
 
@@ -63,7 +66,9 @@ public class AdminService {
             return "Adminname must not be empty";
 
         } else {
-            AdminAccount account = new AdminAccount(adminname, Hash.SHA384toString(password), null, null);
+            String passwordSalt = Salt.generate();
+            String passwordHash = Hash.SHA384toString(password + passwordSalt);
+            AdminAccount account = new AdminAccount(adminname, passwordHash, passwordSalt, null, null);
             this.ar.save(account);
             Logging.LOG.info(adminname + " created");
             return "Account created!";
@@ -77,13 +82,19 @@ public class AdminService {
             Logging.LOG.error("Account does not exist");
             return "No account with that adminname exists";
 
-        } else if (!Hash.SHA384toString(password).equals(optional.get().getPasswordHash())) {
-            Logging.LOG.error("Invalid password");
-            return "Invalid password";
-
         } else {
-            Logging.LOG.info(adminname + " signed in");
-            return "Signed in!";
+            AdminAccount admin = optional.get();
+            String passwordSalt = admin.getPasswordSalt();
+            String passwordHash = Hash.SHA384toString(password + passwordSalt);
+
+            if (!passwordHash.equals(admin.getPasswordHash())) {
+                Logging.LOG.error("Invalid password");
+                return "Invalid password";
+    
+            } else {
+                Logging.LOG.info(adminname + " signed in");
+                return "Signed in!";
+            }
         }
     }
 

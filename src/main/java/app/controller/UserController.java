@@ -3,7 +3,6 @@ package app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.aspect.Logging;
-import app.model.Payment;
 import app.model.UserAccount;
 import app.service.PaymentService;
 import app.service.UserService;
@@ -20,6 +18,7 @@ import app.service.UserService;
 @CrossOrigin
 public class UserController {
     private UserService us;
+    // I would prefer to keep PaymentService separate from UserController, but I don't think JPA supports ON DELETE CASCADE for foreign keys, so this is neccessary
     private PaymentService ps;
 
     @Autowired
@@ -33,36 +32,31 @@ public class UserController {
         Logging.LOG.info("Signing up");
         String username = account.getUsername();
         String message = this.us.addUser(username, account.getPassword());
-        Boolean success = message.equals(username + " created!");
 
-        if (success) {
-            // Not logged because this is simply a placeholder in the Payment table for the user
-            this.ps.addPayment(new Payment(account.getUsername(), null, null, null, null, null));
+        // Unnecessary but needed to maintain RESTful convention
+        if (message.equals("Account created!")) {
+            this.ps.defaultPayment(username);
         }
 
         return message;
     }
     
     @PostMapping("users/{username}")
-    public String signIn(@RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
+    public String signIn(@PathVariable("username") String username, @RequestBody UserAccount account) { // Returns the error or success message defined in UserService.java
         Logging.LOG.info("Signing in");
-        return this.us.validateUser(account.getUsername(), account.getPassword());
+        return this.us.validateUser(username, account.getPassword());
     }
 
-    @GetMapping("users/{username}")
-    public UserAccount getAccount(@PathVariable("username") String username) {
-        return this.us.getAccount(username);
-    }
-
-    @PutMapping("users/{username}")
-    public void setAccount(@RequestBody UserAccount account) { // For changing the password
+    @PutMapping("users")
+    public void updateAccount(@RequestBody UserAccount account) { // For changing the password
         Logging.LOG.info("Updating account information");
-        this.us.setAccount(account);
+        this.us.updateAccount(account);
     }
 
     @DeleteMapping("users/{username}")
     public void deleteAccount(@PathVariable("username") String username) {
         Logging.LOG.info("Deleting " + username);
         this.us.deleteAccount(username);
+        this.ps.deletePayment(username);
     }
 }

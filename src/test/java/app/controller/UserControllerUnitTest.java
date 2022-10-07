@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import app.model.UserAccount;
+import app.service.PaymentService;
 import app.service.UserService;
 
 import org.junit.jupiter.api.Assertions;
@@ -11,37 +12,26 @@ import org.junit.jupiter.api.Assertions;
 class UserControllerUnitTest {
     @Test
     public void signUp() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
+        UserAccount user = new UserAccount("STAN", null, null, "STAN");
         UserService us = Mockito.mock(UserService.class);
-        UserController uc = new UserController(us, null);
+        PaymentService ps = Mockito.mock(PaymentService.class);
+        UserController uc = new UserController(us, ps);
 
-        Mockito.when(us.addUser("DOUG", "DOUG")).thenReturn("Account created!");
+        Mockito.when(us.addUser("STAN", "STAN")).thenReturn("Account created!");
 
-        Assertions.assertEquals("Account created!", uc.signUp(ua));
-        Mockito.verify(us).addUser(ua.getUsername(), ua.getPassword());
+        Assertions.assertEquals("Account created!", uc.signUp(user));
+        Mockito.verify(us).addUser(user.getUsername(), user.getPassword());
     }
 
     @Test
     public void signIn() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
+        UserAccount user = new UserAccount("MARKIE", null, null, "MARKIE");
         UserService us = Mockito.mock(UserService.class);
         UserController uc = new UserController(us, null);
 
-        Mockito.when(us.validateUser("DOUG", "DOUG")).thenReturn("Signed in!");
+        Mockito.when(us.validateUser("MARKIE", "MARKIE")).thenReturn("Signed in!");
 
-        Assertions.assertEquals("Signed in!", uc.signIn(ua));
-        Mockito.verify(us).validateUser(ua.getUsername(), ua.getPassword());
-    }
-
-    @Test
-    public void getAccount() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
-        UserService us = Mockito.mock(UserService.class);
-        UserController uc = new UserController(us, null);
-
-        Mockito.when(us.getAccount("DOUG")).thenReturn(ua);
-
-        Assertions.assertEquals(ua, uc.getAccount("DOUG"));
-        Mockito.verify(us).getAccount("DOUG");
+        Assertions.assertEquals("Signed in!", uc.signIn("MARKIE", user));
+        Mockito.verify(us).validateUser("MARKIE", "MARKIE");
     }
 }

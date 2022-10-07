@@ -1,6 +1,5 @@
 package app.controller;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +27,21 @@ public class UserControllerIntTest {
 
     @Test
     public void signUp() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
-        String uaJSON = ObjToJSON.JSONify(ua);
+        UserAccount user = new UserAccount("JAMES", null, null, "JAMES");
+        String userJSON = ObjToJSON.JSONify(user);
 
-        Mockito.when(us.addUser("DOUG", "DOUG")).thenReturn("Account created!");
+        Mockito.when(us.addUser("JAMES", "JAMES")).thenReturn("Account created!");
 
         RequestBuilder request = MockMvcRequestBuilders.post("/users")
-            .content(uaJSON)
+            .content(userJSON)
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON);
 
         try {
             mvc.perform(request)
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("Account created!")));
-            Mockito.verify(this.us).addUser(ua.getUsername(), ua.getPassword());
+                .andExpect(MockMvcResultMatchers.content().string("Account created!"));
+            Mockito.verify(this.us).addUser("JAMES", "JAMES");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,38 +50,20 @@ public class UserControllerIntTest {
 
     @Test
     public void signIn() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
-        String uaJSON = ObjToJSON.JSONify(ua);
+        UserAccount user = new UserAccount("AVA", null, null, "AVA");
+        String userJSON = ObjToJSON.JSONify(user);
 
-        Mockito.when(us.validateUser("DOUG", "DOUG")).thenReturn("Signed in!");
+        Mockito.when(us.validateUser("AVA", "AVA")).thenReturn("Signed in!");
 
         RequestBuilder request = MockMvcRequestBuilders.post("/users")
-            .content(uaJSON)
+            .content(userJSON)
             .contentType(MediaType.APPLICATION_JSON);
 
         try {
             mvc.perform(request)
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("Signed in!")));
-            Mockito.verify(this.us).validateUser(ua.getUsername(), ua.getPassword());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void getAccount() {
-        UserAccount ua = new UserAccount("DOUG", null, "DOUG");
-
-        Mockito.when(us.getAccount("DOUG")).thenReturn(ua);
-
-        RequestBuilder request = MockMvcRequestBuilders.get("/users/DOUG");
-
-        try {
-            mvc.perform(request)
-                .andExpect(MockMvcResultMatchers.status().isOk());
-            Mockito.verify(this.us).getAccount("DOUG");
+                .andExpect(MockMvcResultMatchers.content().string("Signed in!"));
+            Mockito.verify(this.us).validateUser("AVA", "AVA");
 
         } catch (Exception e) {
             e.printStackTrace();

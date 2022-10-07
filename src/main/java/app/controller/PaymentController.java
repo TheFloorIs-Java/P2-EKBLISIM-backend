@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,15 +23,21 @@ public class PaymentController {
         this.ps = ps;
     }
 
-    @PutMapping("payments")
-    public String updatePayment(@RequestBody Payment payment) { // For changing any payment details
+    @PostMapping("payments")
+    public String addPayment(@RequestBody Payment payment) {
         Logging.LOG.info("Updating payment information");
-        return this.ps.updatePayment(payment);
+        return this.ps.addPayment(payment);
     }
 
     @GetMapping("payments/{username}")
     public Payment getPayment(@PathVariable("username") String username) {
         Logging.LOG.info("Retrieving payment information");
         return this.ps.getPayment(username);
+    }
+
+    @PutMapping("payments/{username}")
+    public String updatePayment(@RequestBody Payment payment) {
+        Logging.LOG.info("Updating payment information");
+        return this.ps.updatePayment(payment);
     }
 }
